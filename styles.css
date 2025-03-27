@@ -1,0 +1,79 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #1e3a5f;
+    color: white;
+    padding: 20px;
+}
+
+h1 {
+    color: #a3c9ff;
+}
+
+.contenedor {
+    background-color: #2b4d7a;
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+select, button {
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    background-color: #508ef5;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2a68d8;
+}
+
+.btn-iniciar {
+    background-color: #ff6b6b;
+}
+
+.btn-iniciar:hover {
+    background-color: #e04e4e;
+}
+
+.leds {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.led {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    border-radius: 50%;
+    background-color: #222;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+}
+
+.encendido {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+}
+
+#estado {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-detener {
+    background-color: #f44336;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-detener:hover {
+    background-color: #d32f2f;
+}

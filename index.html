@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App de Terapias</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Seleccione su Terapia</h1>
+    
+    <div class="contenedor">
+        <label>Terapia:</label>
+        <select id="terapia">
+            <option value="relajación">Relajación</option>
+            <option value="energizante">Energizante</option>
+            <option value="concentración">Concentración</option>
+        </select>
+
+        <label>Duración:</label>
+        <div class="botones">
+            <button onclick="setDuracion(4)">4 min</button>
+            <button onclick="setDuracion(10)">10 min</button>
+            <button onclick="setDuracion(15)">15 min</button>
+        </div>
+
+        <label>Modo de Iluminación:</label>
+        <select id="modo">
+            <option value="intermitente">Intermitente RGB</option>
+            <option value="pausado">Pausado (1.5s cada color)</option>
+            <option value="rojo">Solo Rojo</option>
+            <option value="verde">Solo Verde</option>
+            <option value="azul">Solo Azul</option>
+        </select>
+
+        <button class="btn-iniciar" onclick="iniciarTerapia()">Iniciar Terapia</button>
+        <button class="btn-detener" onclick="detenerTerapia()">Detener Terapia</button>
+
+        <p id="estado">Estado: Inactivo</p>
+
+        <!-- LEDs simulados -->
+        <div class="leds">
+            <div class="led" id="led-rojo"></div>
+            <div class="led" id="led-verde"></div>
+            <div class="led" id="led-azul"></div>
+        </div>
+
+        <!-- Ruido blanco generado -->
+        <audio id="ruido-blanco"></audio>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

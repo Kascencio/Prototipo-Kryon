@@ -37,12 +37,18 @@
         <button class="btn-detener" onclick="detenerTerapia()">Detener Terapia</button>
 
         <p id="estado">Estado: Inactivo</p>
+        <!-- Contador de tiempo -->
+        <p id="contador">Tiempo restante: 00:00</p>
+        <!-- Barra de progreso -->
+        <div id="progress-container">
+            <div id="progress-bar"></div>
+        </div>
 
         <!-- LEDs simulados -->
         <div class="leds">
-            <div class="led" id="led-rojo"></div>
-            <div class="led" id="led-verde"></div>
-            <div class="led" id="led-azul"></div>
+            <div class="led led-rojo" id="led-rojo"></div>
+            <div class="led led-verde" id="led-verde"></div>
+            <div class="led led-azul" id="led-azul"></div>
         </div>
 
         <!-- Ruido blanco generado -->

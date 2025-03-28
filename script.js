@@ -1,5 +1,6 @@
 let duracion = 4;
 let intervalId = null; 
+let timerInterval = null;
 let audioContext = null;
 let noiseSource = null;
 let terapiaActiva = false;
@@ -18,12 +19,12 @@ function iniciarTerapia() {
     let estado = document.getElementById("estado");
 
     estado.textContent = `Estado: Terapia en curso (${duracion} min)`;
-
     console.log(`Iniciando terapia: ${terapia}, Duración: ${duracion} min, Modo LED: ${modo}`);
 
     resetLEDs();
     generarRuidoBlanco(duracion);
     simularLEDs(modo, duracion);
+    iniciarContador(duracion); // Inicia el contador y la barra de progreso
 }
 
 function detenerTerapia() {
@@ -33,7 +34,11 @@ function detenerTerapia() {
     resetLEDs();
     detenerRuidoBlanco();
     clearInterval(intervalId);
+    clearInterval(timerInterval);
     document.getElementById("estado").textContent = "Estado: Inactivo";
+    document.getElementById("contador").textContent = "Tiempo restante: 00:00";
+    // Reinicia la barra de progreso al 0%
+    document.getElementById("progress-bar").style.width = "0%";
     console.log("Terapia detenida");
 }
 
@@ -105,4 +110,32 @@ function detenerRuidoBlanco() {
         noiseSource.disconnect();
         noiseSource = null;
     }
+}
+
+function iniciarContador(duracion) {
+    let totalTime = duracion * 60; // tiempo total en segundos
+    let tiempoRestante = totalTime;
+    let contadorElemento = document.getElementById("contador");
+    let progressBar = document.getElementById("progress-bar");
+
+    // Inicializa la barra de progreso al 100%
+    progressBar.style.width = "100%";
+    contadorElemento.textContent = `Tiempo restante: ${formatTime(tiempoRestante)}`;
+
+    timerInterval = setInterval(() => {
+        tiempoRestante--;
+        contadorElemento.textContent = `Tiempo restante: ${formatTime(tiempoRestante)}`;
+        // Actualiza la barra de progreso (se vacía a medida que transcurre el tiempo)
+        let porcentaje = (tiempoRestante / totalTime) * 100;
+        progressBar.style.width = `${porcentaje}%`;
+        if (tiempoRestante <= 0) {
+            clearInterval(timerInterval);
+        }
+    }, 1000);
+}
+
+function formatTime(seconds) {
+    let min = Math.floor(seconds / 60);
+    let sec = seconds % 60;
+    return `${min.toString().padStart(2, '0')}:${sec.toString().padStart(2, '0')}`;
 }

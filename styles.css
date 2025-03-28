@@ -58,6 +58,16 @@ button:hover {
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
 }
 
+.led-rojo {
+    background-color: #ff4d4d;
+}
+.led-verde {
+    background-color: #4dff4d;
+}
+.led-azul {
+    background-color: #4d4dff;
+}
+
 .encendido {
     box-shadow: 0 0 20px rgba(255, 255, 255, 1);
 }
@@ -65,6 +75,30 @@ button:hover {
 #estado {
     font-weight: bold;
     margin-top: 10px;
+}
+
+/* Estilo para el contador de tiempo */
+#contador {
+    font-size: 18px;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Estilos para la barra de progreso */
+#progress-container {
+    width: 100%;
+    background-color: #444;
+    border-radius: 5px;
+    margin-top: 10px;
+    height: 20px;
+}
+
+#progress-bar {
+    height: 100%;
+    width: 100%; /* Inicia con la barra completa */
+    background-color: #76c7c0;
+    border-radius: 5px;
+    transition: width 1s linear;
 }
 
 .btn-detener {

@@ -8,15 +8,20 @@
 </head>
 <body>
     <h1>Seleccione su Terapia</h1>
-    
+
+    <!-- Botón para conectar el Arduino -->
+    <button id="btn-conectar">Conectar Arduino</button>
+
     <div class="contenedor">
-        <label>Terapia:</label>
+        <!-- Selección de Terapia -->
+        <label for="terapia">Terapia:</label>
         <select id="terapia">
             <option value="relajación">Relajación</option>
             <option value="energizante">Energizante</option>
             <option value="concentración">Concentración</option>
         </select>
 
+        <!-- Selección de Duración -->
         <label>Duración:</label>
         <div class="botones">
             <button onclick="setDuracion(4)">4 min</button>
@@ -24,7 +29,8 @@
             <button onclick="setDuracion(15)">15 min</button>
         </div>
 
-        <label>Modo de Iluminación:</label>
+        <!-- Selección de Modo de Iluminación -->
+        <label for="modo">Modo de Iluminación:</label>
         <select id="modo">
             <option value="intermitente">Intermitente RGB</option>
             <option value="pausado">Pausado (1.5s cada color)</option>
@@ -33,18 +39,22 @@
             <option value="azul">Solo Azul</option>
         </select>
 
+        <!-- Botones de acción -->
         <button class="btn-iniciar" onclick="iniciarTerapia()">Iniciar Terapia</button>
         <button class="btn-detener" onclick="detenerTerapia()">Detener Terapia</button>
 
-        <p id="estado">Estado: Inactivo</p>
+        <!-- Estado actual -->
+        <p id="estado" aria-live="polite">Estado: Inactivo</p>
+
         <!-- Contador de tiempo -->
         <p id="contador">Tiempo restante: 00:00</p>
+
         <!-- Barra de progreso -->
         <div id="progress-container">
             <div id="progress-bar"></div>
         </div>
 
-        <!-- LEDs simulados -->
+        <!-- Simulación de LEDs -->
         <div class="leds">
             <div class="led led-rojo" id="led-rojo"></div>
             <div class="led led-verde" id="led-verde"></div>
